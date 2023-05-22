@@ -2,23 +2,335 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="main.css" rel="stylesheet" />
+    <link href="output.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css" />
     <title>motoko_dapp</title>
     <base href="/" />
     <link rel="icon" href="favicon.ico" />
-    <link type="text/css" rel="stylesheet" href="main.css" />
   </head>
-  <body>
-    <main>
-      <img src="logo2.svg" alt="DFINITY logo" />
+
+  <body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7">
+    <main class="w-full">
+      <!-- <img src="logo2.svg" alt="DFINITY logo" />
       <br />
-      <br />
-      <form action="#">
+      <br /> -->
+
+      <div class="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center px-5 py-5">
+        <div class="w-full mx-auto rounded-xl bg-gray-100 shadow-xl text-gray-800 relative overflow-hidden" style="max-width: 300px">
+          <div class="w-full h-40 bg-gradient-to-b from-gray-800 to-gray-700 items-end text-right">
+            <div class="w-full py-5 px-6 text-2xl text-white font-thin display-small" style="height: 60px"></div>
+            <div class="w-full py-5 px-6 text-6xl text-white font-thin display-large"></div>
+          </div>
+
+          <div class="w-full bg-gradient-to-b from-indigo-400 to-indigo-500">
+            <div class="flex w-full">
+              <div class="w-1/4 border-r border-b border-indigo-400">
+                <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light clear">C</button>
+              </div>
+              <div class="w-1/4 border-r border-b border-indigo-400">
+                <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light backspace">Delete</button>
+              </div>
+              <div class="w-1/4 border-r border-b border-indigo-400">
+                <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light invert">+/-</button>
+              </div>
+              <div class="w-1/4 border-r border-b border-indigo-400">
+                <button class="w-full h-16 outline-none focus:outline-none bg-indigo-700 bg-opacity-10 hover:bg-opacity-20 text-white text-2xl font-light operator" id="divide">÷</button>
+              </div>
+            </div>
+
+            <div class="flex w-full">
+              <div class="w-1/4 border-r border-b border-indigo-400">
+                <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light number">7</button>
+              </div>
+              <div class="w-1/4 border-r border-b border-indigo-400">
+                <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light number">8</button>
+              </div>
+              <div class="w-1/4 border-r border-b border-indigo-400">
+                <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light number">9</button>
+              </div>
+              <div class="w-1/4 border-r border-b border-indigo-400">
+                <button class="w-full h-16 outline-none focus:outline-none bg-indigo-700 bg-opacity-10 hover:bg-opacity-20 text-white text-xl font-light operator" id="multiply">⨉</button>
+              </div>
+            </div>
+
+            <div class="flex w-full">
+              <div class="w-1/4 border-r border-b border-indigo-400">
+                <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light number">4</button>
+              </div>
+              <div class="w-1/4 border-r border-b border-indigo-400">
+                <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light number">5</button>
+              </div>
+              <div class="w-1/4 border-r border-b border-indigo-400">
+                <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light number">6</button>
+              </div>
+              <div class="w-1/4 border-r border-b border-indigo-400">
+                <button class="w-full h-16 outline-none focus:outline-none bg-indigo-700 bg-opacity-10 hover:bg-opacity-20 text-white text-xl font-light operator" id="subtract">-</button>
+              </div>
+            </div>
+            <div class="flex w-full">
+              <div class="w-1/4 border-r border-b border-indigo-400">
+                <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light number">1</button>
+              </div>
+              <div class="w-1/4 border-r border-b border-indigo-400">
+                <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light number">2</button>
+              </div>
+              <div class="w-1/4 border-r border-b border-indigo-400">
+                <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light number">3</button>
+              </div>
+              <div class="w-1/4 border-r border-b border-indigo-400">
+                <button class="w-full h-16 outline-none focus:outline-none bg-indigo-700 bg-opacity-10 hover:bg-opacity-20 text-white text-xl font-light operator" id="add">+</button>
+              </div>
+            </div>
+            <div class="flex w-full">
+              <div class="w-1/4 border-r border-indigo-400">
+                <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light number">0</button>
+              </div>
+              <div class="w-1/4 border-r border-indigo-400">
+                <button class="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light decimal">.</button>
+              </div>
+              <div class="w-2/4 border-r border-indigo-400">
+                <button class="w-full h-16 outline-none focus:outline-none bg-indigo-700 bg-opacity-30 hover:bg-opacity-40 text-white text-xl font-light equal" id="calculate">=</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <form action="#">
         <label for="name">Enter your name: &nbsp;</label>
         <input id="name" alt="Name" type="text" />
         <button type="submit">Click Me!</button>
       </form>
-      <section id="greeting"></section>
+      <section id="greeting"></section> -->
     </main>
+
+    <!-- <script>
+      function add(x, y) {
+        return parseFloat(x) + parseFloat(y);
+      }
+
+      function subtract(x, y) {
+        return parseFloat(x) - parseFloat(y);
+      }
+
+      function divide(x, y) {
+        return parseFloat(x) / parseFloat(y);
+      }
+
+      function multiply(x, y) {
+        return parseFloat(x) * parseFloat(y);
+      }
+
+      function operate(x, y, operator) {
+        if (operator === 'add') {
+          return add(x, y);
+        } else if (operator === 'subtract') {
+          return subtract(x, y);
+        } else if (operator === 'divide') {
+          return divide(x, y).toFixed(5);
+        } else if (operator === 'multiply') {
+          return multiply(x, y);
+        } else {
+          return null;
+        }
+      }
+
+      const numbers = document.querySelectorAll('.number');
+      const operators = document.querySelectorAll('.operator');
+      const displaySmall = document.querySelector('.display-small');
+      const displayLarge = document.querySelector('.display-large');
+      const calculate = document.getElementById('calculate');
+      const clear = document.querySelector('.clear');
+      const backSpace = document.querySelector('.delete');
+      const decimal = document.querySelector('.decimal');
+      const sign = document.querySelector('.sign');
+      const digits = displaySmall.innerText.length;
+
+      let displaySmallIsClear = true;
+      let displayLargeIsClear = true;
+
+      let num = null;
+      let tempNum = '';
+
+      let currentOperator = null;
+      let currentOperatorSign = null;
+
+      let resetScreen = false;
+      let result = null;
+      // let count = 0;
+
+      let currentNum = 0;
+
+      numbers.forEach((number) => {
+        number.addEventListener('click', (e) => {
+          // if (resetScreen) {
+          //   clearScreen();
+          // }
+          //displaySmallNumber(e.target.innerText);
+
+          if (tempNum == '') {
+            displayLarge.innerText = '';
+            tempNum = null;
+          }
+
+          displayLargeNumber(e.target.innerText);
+
+          console.log('num: ' + num);
+          console.log('tempNum: ' + tempNum);
+          console.log('currentOperatorSign: ' + currentOperatorSign);
+          // resetScreen = false;
+        });
+      });
+
+      operators.forEach((operator) => {
+        operator.addEventListener('click', (e) => {
+          setOperand(showNumber());
+          setTheOperator(e.target.id);
+          resetScreen = true;
+        });
+      });
+
+      calculate.addEventListener('click', () => {
+        result = calculateResult();
+        clearScreen();
+        if (result) {
+          displaySmallNumber(result);
+        }
+      });
+
+      function displaySmallNumber(number) {
+        if (!displaySmallIsClear) {
+          displaySmall.innerText += number;
+        }
+      }
+
+      function displayLargeNumber(number) {
+        if (number == null) {
+          console.log('no hay numero');
+        }
+        if (displayLargeIsClear) {
+          displayLarge.innerText = number;
+          displayLargeIsClear = false;
+        } else {
+          displayLarge.innerText += number;
+        }
+      }
+
+      function showNumber() {
+        return displaySmall.innerText;
+      }
+
+      function setTheOperator(operator) {
+        // if (currentOperator == null) {
+        //   currentOperator = operator;
+        // } else if (num && tempNum) {
+        //   result = operate(Number(num), Number(tempNum), currentOperator);
+        //   clearScreen();
+        //   displaySmallNumber(result);
+        //   num = result;
+        //   tempNum = null;
+        //   currentOperator = operator;
+        // }
+
+        switch (operator) {
+          case 'add':
+            currentOperatorSign = '+';
+            break;
+          case 'subtract':
+            currentOperatorSign = '-';
+            break;
+          case 'multiply':
+            currentOperatorSign = 'x';
+            break;
+          case 'divide':
+            currentOperatorSign = '/';
+            break;
+        }
+
+        // process the calculation
+        if (!num) {
+          num = displayLarge.innerText;
+        } else {
+          // acá se procesa
+          tempNum = displayLarge.innerText;
+        }
+
+        // empty tempNum and update the operator for the next calculation
+        tempNum = '';
+        displaySmall.innerText = displayLarge.innerText + ' ' + currentOperatorSign;
+
+        console.log('num: ' + num);
+        console.log('tempNum: ' + tempNum);
+        console.log('currentOperatorSign: ' + currentOperatorSign);
+
+        currentOperator = currentOperatorSign;
+      }
+
+      function displaySign() {
+        displaySmall.innerText = -displaySmall.innerText;
+      }
+
+      function setOperand(value) {
+        if (num == null) {
+          num = value;
+        } else {
+          tempNum = value;
+        }
+      }
+
+      // clear.addEventListener('click', () => {
+      //   clearAllValues();
+      // });
+
+      // backSpace.addEventListener('click', deleteNumber);
+      // decimal.addEventListener('click', displayDecimal);
+      // sign.addEventListener('click', displaySign);
+
+      // function clearScreen() {
+      //   displaySmall.innerText = '';
+      // }
+
+      // function clearAllValues() {
+      //   num = null;
+      //   tempNum = null;
+      //   currentOperator = null;
+      //   clearScreen();
+      // }
+
+      // function calculateResult() {
+      //   if (num && currentOperator && !resetScreen && !tempNum) {
+      //     setOperand(showNumber());
+      //     return operate(Number(num), Number(tempNum), currentOperator);
+      //   } else {
+      //     return false;
+      //   }
+      // }
+
+      // function deleteNumber() {
+      //   if (displaySmall.innerText !== '0') {
+      //     displaySmall.innerText = displaySmall.innerText.toString().slice(0, -1);
+      //   }
+      //   if (displaySmall.innerText === '') {
+      //     displaySmall.innerText = '';
+      //   }
+      // }
+
+      // function displayDecimal() {
+      //   if (!displaySmall.innerText.includes('.')) {
+      //     displaySmall.innerText += '.';
+      //   }
+      // }
+
+      // window.addEventListener('keydown', setKey);
+
+      // function setKey(e) {
+      //   if (e.key >= 0 && e.key <= 9) displaySmallNumber(e.key);
+      //   if (e.key === '.') displayDecimal(e.key);
+      //   if (e.key === 'Backspace') deleteNumber(e.key);
+      //   if (e.key === 'Delete') clearScreen(e.key);
+      // }
+    </script> -->
   </body>
 </html>
